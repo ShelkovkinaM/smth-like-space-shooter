@@ -14,14 +14,14 @@ class GameObject:
 
     def move(self):
         if not_in_border(self.x, self.y, self.direction):
-                if self.direction == "left":
-                    self.x -= self.vx * dt()
-                if self.direction == "right":
-                    self.x += self.vx * dt()
-                if self.direction == "down":
-                    self.y += self.vy * dt()
-                if self.direction == "up":
-                    self.y -= self.vy * dt()
+            if self.direction == "left":
+                self.x -= self.vx * dt()
+            if self.direction == "right":
+                self.x += self.vx * dt()
+            if self.direction == "down":
+                self.y += self.vy * dt()
+            if self.direction == "up":
+                self.y -= self.vy * dt()
 
     def shoot(self, other):
         pass

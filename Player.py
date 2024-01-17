@@ -1,6 +1,7 @@
 import pygame
 from GameObject import GameObject
 from Bullet import Bullet
+from support_functions import *
 
 
 class Player(GameObject):
@@ -18,3 +19,16 @@ class Player(GameObject):
             s = pygame.Rect(self.x, self.y, self.width, self.height)
             if e.colliderect(s):
                 return True
+
+    def move(self):
+        if not_in_border(self.x, self.y, self.direction):
+            if self.direction == "left":
+                self.x -= self.vx * dt()
+            if self.direction == "up":
+                self.y -= self.vy * dt()
+        if not_in_border(self.x + self.width, self.y, self.direction):
+            if self.direction == "right":
+                self.x += self.vx * dt()
+        if not_in_border(self.x, self.y + self.height, self.direction):
+            if self.direction == "down":
+                self.y += self.vy * dt()
